@@ -3,18 +3,18 @@ CREATE TABLE IF NOT EXISTS Lab1 (
     recordNumber INTEGER PRIMARY KEY,
     code INTEGER,
     novelty BOOLEAN DEFAULT FALSE,
-    title TEXT CHECK(length(title) <= 500) NOT NULL,
+    title TEXT CHECK(length(title) <= 200) NOT NULL,
     price_currency DECIMAL(10, 2) NULL,
     publisher TEXT CHECK(length(publisher) <= 200),
     pages INTEGER NOT NULL,
     size TEXT,
     eventDate TEXT NULL,
     circulation INTEGER DEFAULT 5000,
-    theme TEXT CHECK(length(theme) <= 150) NOT NULL,
-    category TEXT CHECK(length(category) <= 150) NOT NULL
+    theme TEXT CHECK(length(theme) <= 100) NOT NULL,
+    category TEXT CHECK(length(category) <= 100) NOT NULL
 );
 --2
-CREATE INDEX index_recordNumber ON Lab1 (code);
+CREATE INDEX index_code ON Lab1 (code);
 --3
 INSERT INTO Lab1 (recordNumber, code, novelty, title, price_currency, publisher, pages, size, eventDate, circulation, theme, category) VALUES 
 (2, 5110, FALSE, "Апаратні засоби мультимедіа. Відеосистема РС", "15.51", "Видавнича група BHV", "400", "70х100/16", "2000-07-24", 5000, "Використання ПК в ціломy", "Підручники"),
