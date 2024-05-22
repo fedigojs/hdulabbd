@@ -77,14 +77,14 @@ SELECT lower(left(title, 10)) || '...' || lower(right(title, 10)) FROM Lab1;
 SELECT title, eventDate, EXTRACT(day FROM eventDate), EXTRACT(month FROM eventDate), EXTRACT(year FROM eventDate) FROM Lab1;
 
 --13
-SELECT title, eventDate, TO_CHAR(eventDate, 'DD / MM / YYYY') FROM Lab1;
+SELECT title, eventDate, TO_CHAR(eventDate, 'DD.TMMon.YYYY') FROM Lab1;
 
 --14
 SELECT 
     code, 
 	title,
     price_currency AS price_usd, 
-    price_currency * 38 AS price_uah, 
+    TRUNC(price_currency * 38) AS price_uah, 
     ROUND(price_currency / 0.92, 2) AS price_eur
 FROM Lab1;
 
